@@ -1,0 +1,30 @@
+<a routerLink="/admin/products/new" class="btn btn-primary">Add Product</a>
+<br><br><br>
+<div class="input-group mb-3">
+    <input type="text" #q class="form-control"(keyup)="filter(q.value)" placeholder="Search..." aria-label="search" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <span class="input-group-text" id="basic-addon2">?</span>
+    </div>
+  </div>
+
+  <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
+      <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true">
+      </data-table-column>
+      
+      <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
+        <ng-template #datatablecell="" let-item="item">
+          {{ item.price | currency:'USD':true }}
+        </ng-template>
+      </data-table-column>
+    
+      <data-table-column [property]="'key'">
+        <ng-template #dataTableCell="" let-item="item">
+          <a [routerLink]="['/admin/products/', item.key]">Edit</a>
+        </ng-template>
+      </data-table-column>
+    
+    </data-table>
+
+  
+
+

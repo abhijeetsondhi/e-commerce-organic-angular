@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pr of prods">
+      <td>
+        {{ pr.title }}
+      </td>
+      <td>
+        {{ pr.quantity }}
+      </td>
+      <td>
+        {{ pr.price }}
+      </td>
+    </tr>
+  </tbody>
+</table>

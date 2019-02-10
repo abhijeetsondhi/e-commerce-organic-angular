@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-3">
+    <div class="list-group">
+      <a *ngFor="let p of categories" class="list-group-item list-group-item-action" 
+        routerLink="/"
+        [queryParams]="{categories:p.key}"
+        [class.active]="categories === p.key">
+        {{ p.payload.val().name }}
+      </a>
+    </div>
+  </div>
+<div class="col">
+<div class="row">
+<ng-container *ngFor="let c of filteredProduct">
+  <div class="col">
+    <product-card [product]="c" [shopping-cart]="cart"></product-card>
+    </div>
+  </ng-container>
+  </div>
+</div>
+</div>
